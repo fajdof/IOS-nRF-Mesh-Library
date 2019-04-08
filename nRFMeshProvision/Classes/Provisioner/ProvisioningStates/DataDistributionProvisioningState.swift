@@ -110,11 +110,11 @@ class DataDistributionProvisioningState: NSObject, ProvisioningStateProtocol {
                 for aSegment in segmentedProvisioningData {
                     print("Provisioning Data: \(aSegment.hexString())")
                     if aSegment[0] == provDataSARStart {
-                        print("Provisioning data SAR Start: 0x47, Part \(segmentedProvisioningData.index(of: aSegment)!) of \(segmentedProvisioningData.count)")
+                        print("Provisioning data SAR Start: 0x47, Part \(segmentedProvisioningData.firstIndex(of: aSegment)!) of \(segmentedProvisioningData.count)")
                     } else if aSegment[0] == provDataSARContinue {
-                        print("Provisioning data SAR Continue: 0x87, Part \(segmentedProvisioningData.index(of: aSegment)!) of \(segmentedProvisioningData.count)")
+                        print("Provisioning data SAR Continue: 0x87, Part \(segmentedProvisioningData.firstIndex(of: aSegment)!) of \(segmentedProvisioningData.count)")
                     } else if aSegment[0] == provDataSARLast {
-                        print("Provisioning data SAR Last: 0xC7, Part \(segmentedProvisioningData.index(of: aSegment)!) of \(segmentedProvisioningData.count)")
+                        print("Provisioning data SAR Last: 0xC7, Part \(segmentedProvisioningData.firstIndex(of: aSegment)!) of \(segmentedProvisioningData.count)")
                     }
                     target.basePeripheral().writeValue(aSegment, for: dataInCharacteristic, type: .withoutResponse)
                 }

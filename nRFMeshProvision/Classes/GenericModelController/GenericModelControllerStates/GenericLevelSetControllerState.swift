@@ -87,7 +87,7 @@ class GenericLevelSetControllerState: NSObject, GenericModelControllerStateProto
                 let chunkRanges = self.calculateDataRanges(data, withSize: 19)
                 for aRange in chunkRanges {
                     var header = Data()
-                    let chunkIndex = chunkRanges.index(of: aRange)!
+                    let chunkIndex = chunkRanges.firstIndex(of: aRange)!
                     if chunkIndex == 0 {
                         header.append(Data([0x40])) //SAR start
                     } else if chunkIndex == chunkRanges.count - 1 {
@@ -155,7 +155,7 @@ class GenericLevelSetControllerState: NSObject, GenericModelControllerStateProto
             let chunkRanges = self.calculateDataRanges(dataToSegment, withSize: 19)
             for aRange in chunkRanges {
                 var header = Data()
-                let chunkIndex = chunkRanges.index(of: aRange)!
+                let chunkIndex = chunkRanges.firstIndex(of: aRange)!
                 if chunkIndex == 0 {
                     header.append(Data([0x40])) //SAR start
                 } else if chunkIndex == chunkRanges.count - 1 {

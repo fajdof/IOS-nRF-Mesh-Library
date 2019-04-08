@@ -10,7 +10,7 @@ import Foundation
 public extension Data {
     //Hex string to Data representation
     //Inspired by https://stackoverflow.com/questions/26501276/converting-hex-string-to-nsdata-in-swift
-    public init?(hexString: String) {
+    init?(hexString: String) {
         let len = hexString.count / 2
         var data = Data(capacity: len)
         for i in 0..<len {
@@ -26,7 +26,7 @@ public extension Data {
    self = data
     }
 
-    public func hexString() -> String {
+    func hexString() -> String {
         return self.reduce("") { string, byte in
             string + String(format: "%02X", byte)
         }
